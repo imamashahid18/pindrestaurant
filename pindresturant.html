@@ -1,0 +1,2648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>PIND Restaurant | پنڈ ریسٹورنٹ</title>
+
+    <meta name="description"
+        content="PIND Restaurant - Authentic Pakistani and Desi cuisine in Kala Shah Kaku, Pakistan. Karahi, BBQ, Tandoor, traditional dishes and more.">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Noto+Nastaliq+Urdu:wght@400;600&family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+        /* =========================
+           GLOBAL
+        ========================= */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --brown: #2c1b12;
+            --dark-brown: #1a100b;
+            --cream: #f7f0df;
+            --beige: #dfc9a3;
+            --gold: #c49a55;
+            --green: #45513b;
+            --light-green: #657257;
+            --white: #ffffff;
+            --text: #33251c;
+            --muted: #75675c;
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            color: var(--text);
+            background: var(--cream);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: "Cormorant Garamond", serif;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        img {
+            width: 100%;
+            display: block;
+        }
+
+        section {
+            padding: 90px 7%;
+        }
+
+        .container {
+            max-width: 1250px;
+            margin: auto;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-heading span {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .section-heading h2 {
+            font-size: clamp(40px, 5vw, 62px);
+            color: var(--brown);
+            margin: 8px 0;
+        }
+
+        .section-heading p {
+            max-width: 650px;
+            margin: auto;
+            color: var(--muted);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            padding: 14px 25px;
+            border-radius: 3px;
+            border: 1px solid transparent;
+            font-weight: 600;
+            transition: .3s ease;
+            cursor: pointer;
+        }
+
+        .btn-gold {
+            background: var(--gold);
+            color: white;
+        }
+
+        .btn-gold:hover {
+            background: #a87d3e;
+            transform: translateY(-3px);
+        }
+
+        .btn-outline {
+            border-color: var(--beige);
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background: white;
+            color: var(--brown);
+        }
+
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 999;
+            background: rgba(26, 16, 11, .96);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255,255,255,.1);
+        }
+
+        .navbar {
+            max-width: 1400px;
+            margin: auto;
+            padding: 14px 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-family: "Cormorant Garamond", serif;
+            font-size: 28px;
+            font-weight: 700;
+            line-height: 1;
+        }
+
+        .logo small {
+            display: block;
+            font-family: "Noto Nastaliq Urdu", serif;
+            color: var(--gold);
+            font-size: 13px;
+            text-align: center;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #eee;
+            font-size: 14px;
+            transition: .3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--gold);
+        }
+
+        .nav-menu-btn {
+            display: none;
+            color: white;
+            font-size: 25px;
+            cursor: pointer;
+        }
+
+        .nav-cta {
+            padding: 10px 18px !important;
+            background: var(--gold);
+            border-radius: 3px;
+        }
+
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            color: white;
+            background:
+                linear-gradient(rgba(20, 11, 7, .72), rgba(20, 11, 7, .82)),
+                url("https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=1800&q=85")
+                center/cover;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            padding-top: 70px;
+        }
+
+        .hero-label {
+            color: var(--gold);
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .hero h1 {
+            font-size: clamp(55px, 8vw, 105px);
+            line-height: .9;
+            margin: 18px 0;
+        }
+
+        .urdu {
+            font-family: "Noto Nastaliq Urdu", serif;
+            color: var(--beige);
+        }
+
+        .hero .urdu {
+            font-size: clamp(22px, 3vw, 35px);
+            margin-bottom: 12px;
+        }
+
+        .hero-description {
+            max-width: 620px;
+            color: #e6dfd5;
+            margin-bottom: 28px;
+            font-size: 16px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .rating {
+            margin-top: 35px;
+            display: inline-flex;
+            gap: 12px;
+            align-items: center;
+            padding: 10px 18px;
+            background: rgba(255,255,255,.08);
+            border: 1px solid rgba(255,255,255,.15);
+        }
+
+        .stars {
+            color: var(--gold);
+        }
+
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about {
+            background: var(--cream);
+        }
+
+        .about-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 70px;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .about-image img {
+            height: 560px;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .about-badge {
+            position: absolute;
+            bottom: 25px;
+            right: -25px;
+            background: var(--brown);
+            color: white;
+            padding: 25px;
+            width: 190px;
+            text-align: center;
+            border: 3px solid var(--gold);
+        }
+
+        .about-badge strong {
+            font-family: "Cormorant Garamond";
+            font-size: 30px;
+            display: block;
+        }
+
+        .about-text h2 {
+            font-size: 55px;
+            color: var(--brown);
+            line-height: 1;
+            margin: 10px 0 20px;
+        }
+
+        .about-text p {
+            color: var(--muted);
+            margin-bottom: 18px;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        .feature {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            font-size: 14px;
+        }
+
+        .feature i {
+            color: var(--gold);
+        }
+
+
+        /* =========================
+           SIGNATURE DISHES
+        ========================= */
+
+        .signature {
+            background: #efe4cf;
+        }
+
+        .dish-grid {
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 22px;
+        }
+
+        .dish-card {
+            background: white;
+            overflow: hidden;
+            border-radius: 4px;
+            box-shadow: 0 8px 30px rgba(44,27,18,.08);
+            transition: .35s ease;
+        }
+
+        .dish-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 18px 40px rgba(44,27,18,.16);
+        }
+
+        .dish-image {
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .dish-image img {
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .dish-card:hover img {
+            transform: scale(1.08);
+        }
+
+        .dish-info {
+            padding: 20px;
+        }
+
+        .dish-info h3 {
+            font-size: 25px;
+            color: var(--brown);
+            margin-bottom: 7px;
+        }
+
+        .dish-info p {
+            color: var(--muted);
+            font-size: 13px;
+            min-height: 65px;
+        }
+
+        .price {
+            display: block;
+            margin-top: 12px;
+            color: var(--gold);
+            font-weight: 700;
+            font-size: 17px;
+        }
+
+
+        /* =========================
+           MENU
+        ========================= */
+
+        .menu {
+            background: var(--cream);
+        }
+
+        .filters {
+            max-width: 1150px;
+            margin: 0 auto 40px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 9px;
+        }
+
+        .filter-btn {
+            border: 1px solid #cdbb9e;
+            background: transparent;
+            color: var(--brown);
+            padding: 10px 17px;
+            cursor: pointer;
+            transition: .3s;
+            border-radius: 30px;
+            font-family: inherit;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            background: var(--brown);
+            color: white;
+            border-color: var(--brown);
+        }
+
+        .menu-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .menu-item {
+            background: white;
+            padding: 22px;
+            border-left: 3px solid transparent;
+            box-shadow: 0 5px 20px rgba(44,27,18,.05);
+            transition: .3s;
+        }
+
+        .menu-item:hover {
+            border-left-color: var(--gold);
+            transform: translateX(4px);
+        }
+
+        .menu-item h3 {
+            font-size: 23px;
+            color: var(--brown);
+            line-height: 1.1;
+        }
+
+        .menu-item p {
+            color: var(--muted);
+            font-size: 12px;
+            margin-top: 6px;
+        }
+
+        .menu-price {
+            color: var(--gold);
+            font-weight: 700;
+            margin-top: 8px;
+        }
+
+
+        /* =========================
+           BBQ
+        ========================= */
+
+        .bbq {
+            background:
+                linear-gradient(rgba(35,21,14,.9),rgba(35,21,14,.93)),
+                url("https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1800&q=80")
+                center/cover fixed;
+            color: white;
+        }
+
+        .bbq .section-heading h2 {
+            color: white;
+        }
+
+        .bbq .section-heading p {
+            color: #cfc5ba;
+        }
+
+        .bbq-grid {
+            max-width: 1050px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .bbq-card {
+            background: rgba(255,255,255,.07);
+            border: 1px solid rgba(255,255,255,.15);
+            padding: 32px;
+            transition: .3s;
+        }
+
+        .bbq-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+        }
+
+        .bbq-card h3 {
+            color: var(--gold);
+            font-size: 33px;
+        }
+
+        .bbq-price {
+            font-size: 23px;
+            margin: 8px 0 20px;
+        }
+
+        .bbq-card ul {
+            list-style: none;
+            color: #ded5ca;
+            font-size: 14px;
+        }
+
+        .bbq-card li {
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,.08);
+        }
+
+        .bbq-card li i {
+            color: var(--gold);
+            margin-right: 8px;
+        }
+
+
+        /* =========================
+           REVIEWS
+        ========================= */
+
+        .reviews {
+            background: #eee3ce;
+        }
+
+        .review-score {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .review-score strong {
+            display: block;
+            font-family: "Cormorant Garamond";
+            font-size: 70px;
+            color: var(--brown);
+            line-height: 1;
+        }
+
+        .review-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            gap: 20px;
+        }
+
+        .review-card {
+            background: white;
+            padding: 30px;
+            position: relative;
+        }
+
+        .review-card i {
+            color: var(--gold);
+            font-size: 25px;
+        }
+
+        .review-card p {
+            color: var(--muted);
+            margin: 18px 0;
+            font-size: 14px;
+        }
+
+        .review-card strong {
+            color: var(--brown);
+        }
+
+
+        /* =========================
+           GALLERY
+        ========================= */
+
+        .gallery {
+            background: var(--cream);
+        }
+
+        .gallery-grid {
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-auto-rows: 210px;
+            gap: 12px;
+        }
+
+        .gallery-item {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gallery-item:first-child {
+            grid-column: span 2;
+            grid-row: span 2;
+        }
+
+        .gallery-item:nth-child(4) {
+            grid-row: span 2;
+        }
+
+        .gallery-item img {
+            height: 100%;
+            object-fit: cover;
+            transition: .5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,.7));
+            opacity: 0;
+            transition: .3s;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact {
+            background: var(--green);
+            color: white;
+        }
+
+        .contact-grid {
+            max-width: 1150px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: stretch;
+        }
+
+        .contact-info h2 {
+            font-size: 58px;
+            line-height: 1;
+            margin: 10px 0 20px;
+        }
+
+        .contact-info > p {
+            color: #d9ded2;
+            margin-bottom: 25px;
+        }
+
+        .contact-detail {
+            display: flex;
+            gap: 15px;
+            margin: 20px 0;
+            align-items: flex-start;
+        }
+
+        .contact-detail i {
+            color: var(--gold);
+            margin-top: 6px;
+            width: 20px;
+        }
+
+        .contact-detail strong {
+            display: block;
+        }
+
+        .contact-detail span {
+            color: #d6d9d0;
+            font-size: 14px;
+        }
+
+        .map {
+            min-height: 420px;
+            background:
+                linear-gradient(rgba(0,0,0,.25),rgba(0,0,0,.25)),
+                url("https://images.unsplash.com/photo-1569336415962-a4bd9f69cd83?auto=format&fit=crop&w=1200&q=80")
+                center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 5px solid rgba(255,255,255,.08);
+        }
+
+        .map-card {
+            background: rgba(26,16,11,.9);
+            padding: 30px;
+            text-align: center;
+            max-width: 300px;
+        }
+
+        .map-card i {
+            color: var(--gold);
+            font-size: 35px;
+            margin-bottom: 10px;
+        }
+
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            background: #170d08;
+            color: #ddd;
+            padding: 55px 7% 25px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .footer-logo {
+            font-family: "Cormorant Garamond";
+            font-size: 36px;
+            color: white;
+        }
+
+        .footer-brand p {
+            color: #9f958d;
+            max-width: 380px;
+            margin: 15px 0;
+        }
+
+        .footer h3 {
+            color: white;
+            font-size: 23px;
+            margin-bottom: 15px;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin: 7px 0;
+            color: #aaa19a;
+        }
+
+        .footer-links a:hover {
+            color: var(--gold);
+        }
+
+        .socials {
+            display: flex;
+            gap: 10px;
+        }
+
+        .socials a {
+            width: 38px;
+            height: 38px;
+            border: 1px solid #55483e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: .3s;
+        }
+
+        .socials a:hover {
+            background: var(--gold);
+            border-color: var(--gold);
+        }
+
+        .copyright {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid #33261e;
+            text-align: center;
+            font-size: 12px;
+            color: #82786f;
+        }
+
+
+        /* =========================
+           SCROLL TOP
+        ========================= */
+
+        #topBtn {
+            position: fixed;
+            right: 22px;
+            bottom: 22px;
+            width: 45px;
+            height: 45px;
+            border: none;
+            background: var(--gold);
+            color: white;
+            cursor: pointer;
+            display: none;
+            z-index: 900;
+        }
+
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        .fade {
+            opacity: 0;
+            transform: translateY(25px);
+            transition: 1s ease;
+        }
+
+        .fade.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+
+        /* =========================
+           RESPONSIVE
+        ========================= */
+
+        @media(max-width: 1000px) {
+
+            .dish-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .menu-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .gallery-grid {
+                grid-template-columns: repeat(2,1fr);
+            }
+
+            .review-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width: 800px) {
+
+            section {
+                padding: 70px 5%;
+            }
+
+            .nav-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 69px;
+                left: 0;
+                width: 100%;
+                background: var(--dark-brown);
+                flex-direction: column;
+                padding: 25px;
+                gap: 18px;
+                display: none;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-image img {
+                height: 400px;
+            }
+
+            .about-badge {
+                right: 10px;
+            }
+
+            .bbq-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media(max-width: 600px) {
+
+            .hero {
+                min-height: 95vh;
+            }
+
+            .hero h1 {
+                font-size: 60px;
+            }
+
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+
+            .hero-buttons .btn {
+                width: 100%;
+            }
+
+            .dish-grid,
+            .menu-grid,
+            .review-grid,
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-grid {
+                grid-template-columns: 1fr 1fr;
+                grid-auto-rows: 150px;
+            }
+
+            .gallery-item:first-child {
+                grid-column: span 2;
+                grid-row: span 2;
+            }
+
+            .contact-info h2 {
+                font-size: 45px;
+            }
+
+            .about-text h2 {
+                font-size: 45px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<header>
+
+    <nav class="navbar">
+
+        <a href="#home" class="logo">
+            PIND
+            <small>پنڈ ریسٹورنٹ</small>
+        </a>
+
+        <ul class="nav-links" id="navLinks">
+
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#menu">Menu</a></li>
+            <li><a href="#bbq">BBQ</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#reviews">Reviews</a></li>
+            <li><a href="#contact">Contact</a></li>
+
+            <li>
+                <a href="#menu" class="nav-cta">View Menu</a>
+            </li>
+
+        </ul>
+
+        <div class="nav-menu-btn" onclick="toggleMenu()">
+            <i class="fas fa-bars"></i>
+        </div>
+
+    </nav>
+
+</header>
+
+
+<!-- =========================
+     HERO
+========================= -->
+
+<section class="hero" id="home">
+
+    <div class="container">
+
+        <div class="hero-content fade">
+
+            <span class="hero-label">
+                Authentic Pakistani Cuisine
+            </span>
+
+            <h1>
+                Welcome to<br>
+                PIND Restaurant
+            </h1>
+
+            <div class="urdu">
+                پنڈ ریسٹورنٹ — دیسی ذائقے، پنڈ کی خوشبو
+            </div>
+
+            <p class="hero-description">
+                Experience authentic Pakistani flavors, traditional recipes,
+                charcoal BBQ and warm PIND hospitality in Kala Shah Kaku.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#menu" class="btn btn-gold">
+                    <i class="fas fa-utensils"></i>
+                    View Menu
+                </a>
+
+                <a target="_blank"
+                   href="https://www.google.com/maps/search/?api=1&query=PIND+Restaurant+Kala+Shah+Kaku"
+                   class="btn btn-outline">
+                    <i class="fas fa-location-dot"></i>
+                    Get Directions
+                </a>
+
+                <a href="tel:+923084761633" class="btn btn-outline">
+                    <i class="fas fa-phone"></i>
+                    Call Now
+                </a>
+
+            </div>
+
+            <div class="rating">
+
+                <span class="stars">
+                    ★★★★★
+                </span>
+
+                <strong>
+                    4.3/5
+                </strong>
+
+                <span>
+                    4,925 Reviews
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     ABOUT
+========================= -->
+
+<section class="about" id="about">
+
+    <div class="about-grid">
+
+        <div class="about-image fade">
+
+            <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=1000&q=85"
+                 alt="Traditional Pakistani food">
+
+            <div class="about-badge">
+                <strong>Desi</strong>
+                Taste & Tradition
+            </div>
+
+        </div>
+
+
+        <div class="about-text fade">
+
+            <span class="hero-label" style="color:#c49a55;">
+                Our Story
+            </span>
+
+            <h2>
+                The Taste of<br>
+                <span style="color:#c49a55;">PIND</span>
+            </h2>
+
+            <p>
+                PIND Restaurant is a destination for authentic Pakistani
+                cuisine, combining traditional flavors with a comfortable
+                and welcoming dining environment.
+            </p>
+
+            <p>
+                From rich desi karahi and charcoal BBQ to freshly prepared
+                naan and traditional desserts, every dish is prepared to
+                deliver the true taste of Pakistan.
+            </p>
+
+            <div class="features">
+
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    Authentic Desi Food
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    Traditional Recipes
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    Indoor & Outdoor Seating
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    Spacious Parking
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    Family Friendly
+                </div>
+
+                <div class="feature">
+                    <i class="fas fa-check-circle"></i>
+                    Dine-in • Takeout • Delivery
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     SIGNATURE DISHES
+========================= -->
+
+<section class="signature">
+
+    <div class="section-heading">
+
+        <span>From Our Kitchen</span>
+
+        <h2>Taste of PIND</h2>
+
+        <p>
+            Discover some of our signature dishes prepared with
+            traditional Pakistani flavors.
+        </p>
+
+    </div>
+
+
+    <div class="dish-grid">
+
+
+        <div class="dish-card fade">
+
+            <div class="dish-image">
+                <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=800&q=80"
+                     alt="Chicken Karahi">
+            </div>
+
+            <div class="dish-info">
+
+                <h3>Desi Chicken Karahi</h3>
+
+                <p>
+                    Authentic desi chicken cooked in PIND special recipe.
+                </p>
+
+                <span class="price">Rs. 4,800</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="dish-card fade">
+
+            <div class="dish-image">
+                <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?auto=format&fit=crop&w=800&q=80"
+                     alt="Mutton Karahi">
+            </div>
+
+            <div class="dish-info">
+
+                <h3>Mutton Karahi</h3>
+
+                <p>
+                    Tender mutton pieces cooked in traditional spices.
+                </p>
+
+                <span class="price">Rs. 4,800</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="dish-card fade">
+
+            <div class="dish-image">
+                <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=800&q=80"
+                     alt="BBQ platter">
+            </div>
+
+            <div class="dish-info">
+
+                <h3>BBQ Platter for 2</h3>
+
+                <p>
+                    Tikka, Kabab, Gola Kabab, Kastoori Boti,
+                    Achari Boti, Naan, Raita & Salad.
+                </p>
+
+                <span class="price">Rs. 2,399</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="dish-card fade">
+
+            <div class="dish-image">
+                <img src="https://images.unsplash.com/photo-1610057099443-fde8c4d50f91?auto=format&fit=crop&w=800&q=80"
+                     alt="Chicken Handi">
+            </div>
+
+            <div class="dish-info">
+
+                <h3>Chicken Mughlai Handi</h3>
+
+                <p>
+                    Juicy chicken pieces cooked in special spices
+                    and served in traditional handi.
+                </p>
+
+                <span class="price">Rs. 1,725</span>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     MENU
+========================= -->
+
+<section class="menu" id="menu">
+
+    <div class="section-heading">
+
+        <span>Explore Our Menu</span>
+
+        <h2>Our Menu</h2>
+
+        <p>
+            Traditional Pakistani dishes, BBQ, Karahi, Tandoor,
+            drinks and desserts.
+        </p>
+
+    </div>
+
+
+    <div class="filters">
+
+        <button class="filter-btn active" onclick="filterMenu('all', this)">
+            All
+        </button>
+
+        <button class="filter-btn" onclick="filterMenu('desi', this)">
+            Desi
+        </button>
+
+        <button class="filter-btn" onclick="filterMenu('mutton', this)">
+            Mutton
+        </button>
+
+        <button class="filter-btn" onclick="filterMenu('chicken', this)">
+            Chicken
+        </button>
+
+        <button class="filter-btn" onclick="filterMenu('bbq', this)">
+            BBQ
+        </button>
+
+        <button class="filter-btn" onclick="filterMenu('tandoor', this)">
+            Tandoor
+        </button>
+
+        <button class="filter-btn" onclick="filterMenu('drinks', this)">
+            Drinks
+        </button>
+
+        <button class="filter-btn" onclick="filterMenu('desserts', this)">
+            Desserts
+        </button>
+
+    </div>
+
+
+    <div class="menu-grid" id="menuGrid">
+
+
+        <!-- DESI -->
+
+        <div class="menu-item" data-category="desi">
+
+            <h3>Desi Chicken Karahi</h3>
+
+            <p>
+                Authentic desi chicken cooked in PIND special recipe.
+            </p>
+
+            <div class="menu-price">
+                Rs. 4,800
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="desi">
+
+            <h3>Desi Chicken Karahi Makhni</h3>
+
+            <p>
+                Desi chicken cooked in butter with PIND special recipe.
+            </p>
+
+            <div class="menu-price">
+                Rs. 5,000
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="desi">
+
+            <h3>Desi Chicken Karahi with Olive Oil</h3>
+
+            <div class="menu-price">
+                Rs. 5,200
+            </div>
+
+        </div>
+
+
+        <!-- MUTTON -->
+
+        <div class="menu-item" data-category="mutton">
+
+            <h3>Mutton Irani Karahi</h3>
+
+            <p>PIND Special</p>
+
+            <div class="menu-price">
+                Rs. 5,000
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="mutton">
+
+            <h3>Mutton Karahi</h3>
+
+            <div class="menu-price">
+                Rs. 4,800
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="mutton">
+
+            <h3>Mutton Karahi Makhni</h3>
+
+            <div class="menu-price">
+                Rs. 5,000
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="mutton">
+
+            <h3>Mutton Sulemani Karahi</h3>
+
+            <div class="menu-price">
+                Rs. 5,000
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="mutton">
+
+            <h3>Mutton Peshawari Shenwari Karahi</h3>
+
+            <div class="menu-price">
+                Rs. 5,000
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="mutton">
+
+            <h3>PIND Special Tawa Chops</h3>
+
+            <div class="menu-price">
+                Rs. 2,399
+            </div>
+
+        </div>
+
+
+        <!-- CHICKEN -->
+
+        <div class="menu-item" data-category="chicken">
+
+            <h3>Chicken Karahi</h3>
+
+            <div class="menu-price">
+                Rs. 1,990
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="chicken">
+
+            <h3>Chicken Peshawari Karahi</h3>
+
+            <div class="menu-price">
+                Rs. 2,199
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="chicken">
+
+            <h3>Chicken Mughlai Handi</h3>
+
+            <div class="menu-price">
+                Rs. 1,725
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="chicken">
+
+            <h3>Chicken Handi</h3>
+
+            <div class="menu-price">
+                Rs. 1,725
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="chicken">
+
+            <h3>Chicken Achari Handi</h3>
+
+            <div class="menu-price">
+                Rs. 1,725
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="chicken">
+
+            <h3>Chicken Jalfrezi</h3>
+
+            <div class="menu-price">
+                Rs. 1,725
+            </div>
+
+        </div>
+
+
+        <!-- BBQ -->
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Chicken Tikka</h3>
+
+            <div class="menu-price">
+                Rs. 525
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Chicken Tikka Boti</h3>
+
+            <div class="menu-price">
+                Rs. 1,099
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Chicken Kabab</h3>
+
+            <div class="menu-price">
+                Rs. 1,099
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Chicken Cheese Kabab</h3>
+
+            <div class="menu-price">
+                Rs. 1,199
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Beef Kabab</h3>
+
+            <div class="menu-price">
+                Rs. 1,099
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Gola Kabab</h3>
+
+            <div class="menu-price">
+                Rs. 1,099
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Mutton Kabab</h3>
+
+            <div class="menu-price">
+                Rs. 1,250
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Chicken Achari Boti</h3>
+
+            <div class="menu-price">
+                Rs. 1,099
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Chicken Malai Boti</h3>
+
+            <div class="menu-price">
+                Rs. 1,325
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Chicken Kastoori Boti</h3>
+
+            <div class="menu-price">
+                Rs. 1,399
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Chicken Shishtouk</h3>
+
+            <div class="menu-price">
+                Rs. 1,399
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Mughlai Tikka</h3>
+
+            <div class="menu-price">
+                Rs. 595
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Mutton Chops</h3>
+
+            <div class="menu-price">
+                Rs. 2,499
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="bbq">
+
+            <h3>Grilled Chicken</h3>
+
+            <div class="menu-price">
+                Rs. 1,890
+            </div>
+
+        </div>
+
+
+        <!-- TANDOOR -->
+
+        <div class="menu-item" data-category="tandoor">
+
+            <h3>Tandoori Roti</h3>
+
+            <div class="menu-price">
+                Rs. 30
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="tandoor">
+
+            <h3>Peshawari Roti</h3>
+
+            <div class="menu-price">
+                Rs. 150
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="tandoor">
+
+            <h3>Khameeri Roti</h3>
+
+            <div class="menu-price">
+                Rs. 60
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="tandoor">
+
+            <h3>Plain Naan</h3>
+
+            <div class="menu-price">
+                Rs. 75
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="tandoor">
+
+            <h3>Roghni Naan</h3>
+
+            <div class="menu-price">
+                Rs. 135
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="tandoor">
+
+            <h3>Garlic Naan</h3>
+
+            <div class="menu-price">
+                Rs. 150
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="tandoor">
+
+            <h3>Tandoori Paratha</h3>
+
+            <div class="menu-price">
+                Rs. 199
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="tandoor">
+
+            <h3>Mix Cheese Naan</h3>
+
+            <div class="menu-price">
+                Rs. 625
+            </div>
+
+        </div>
+
+
+        <!-- DRINKS -->
+
+        <div class="menu-item" data-category="drinks">
+
+            <h3>Pepsi / 7up / Mountain Dew</h3>
+
+            <div class="menu-price">
+                Rs. 120
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="drinks">
+
+            <h3>Sting</h3>
+
+            <div class="menu-price">
+                Rs. 140
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="drinks">
+
+            <h3>Fresh Lime</h3>
+
+            <div class="menu-price">
+                Rs. 140
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="drinks">
+
+            <h3>Mint Margarita</h3>
+
+            <div class="menu-price">
+                Rs. 299
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="drinks">
+
+            <h3>Lassi</h3>
+
+            <div class="menu-price">
+                Rs. 150
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="drinks">
+
+            <h3>PIND Special Kahwa</h3>
+
+            <div class="menu-price">
+                Rs. 120
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="drinks">
+
+            <h3>Hot Tea</h3>
+
+            <div class="menu-price">
+                Rs. 180
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="drinks">
+
+            <h3>Cappuccino</h3>
+
+            <div class="menu-price">
+                Rs. 250
+            </div>
+
+        </div>
+
+
+        <!-- DESSERTS -->
+
+        <div class="menu-item" data-category="desserts">
+
+            <h3>Gulab Jaman (Sharaqpuri)</h3>
+
+            <div class="menu-price">
+                Rs. 450
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="desserts">
+
+            <h3>Gurr Rice</h3>
+
+            <div class="menu-price">
+                Rs. 899
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="desserts">
+
+            <h3>Ice Cream</h3>
+
+            <div class="menu-price">
+                Rs. 325
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="desserts">
+
+            <h3>Gajar Halwa</h3>
+
+            <p>Seasonal</p>
+
+            <div class="menu-price">
+                Rs. 499
+            </div>
+
+        </div>
+
+
+        <div class="menu-item" data-category="desserts">
+
+            <h3>Petha Halwa</h3>
+
+            <p>Seasonal</p>
+
+            <div class="menu-price">
+                Rs. 499
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     BBQ PLATTERS
+========================= -->
+
+<section class="bbq" id="bbq">
+
+    <div class="section-heading">
+
+        <span>Charcoal • Tradition • Flavor</span>
+
+        <h2>BBQ Platters</h2>
+
+        <p>
+            Perfect combinations for sharing with family and friends.
+        </p>
+
+    </div>
+
+
+    <div class="bbq-grid">
+
+
+        <div class="bbq-card fade">
+
+            <h3>BBQ Platter for 2</h3>
+
+            <div class="bbq-price">
+                Rs. 2,399
+            </div>
+
+            <ul>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Chicken Tikka — 1 piece
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Chicken Kabab — 2 pieces
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Gola Kabab — 2 pieces
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Chicken Kastoori Boti — 1 seekh
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Chicken Achari Boti — 1 seekh
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Raita / Salad — 1
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Naan — 3 pieces
+                </li>
+
+            </ul>
+
+        </div>
+
+
+        <div class="bbq-card fade">
+
+            <h3>BBQ Platter for 4</h3>
+
+            <div class="bbq-price">
+                Rs. 4,299
+            </div>
+
+            <ul>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Chicken Tikka — 2 pieces
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Chicken Kabab — 2 pieces
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Mutton Kabab — 2 pieces
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Gola Kabab — 4 pieces
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Chicken Kastoori Boti — 1 seekh
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Chicken Malai Boti — 1 seekh
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Chicken Achari Boti — 1 seekh
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Raita / Salad — 1
+                </li>
+
+                <li>
+                    <i class="fas fa-fire"></i>
+                    Naan — 6 pieces
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     REVIEWS
+========================= -->
+
+<section class="reviews" id="reviews">
+
+    <div class="section-heading">
+
+        <span>Guest Experiences</span>
+
+        <h2>What Our Guests Say</h2>
+
+    </div>
+
+
+    <div class="review-score">
+
+        <strong>4.3</strong>
+
+        <div class="stars">
+            ★★★★★
+        </div>
+
+        <p>
+            Based on 4,925 Reviews
+        </p>
+
+    </div>
+
+
+    <div class="review-grid">
+
+
+        <div class="review-card fade">
+
+            <i class="fas fa-quote-left"></i>
+
+            <p>
+                A great place for authentic Desi food with a
+                beautiful village-inspired atmosphere.
+            </p>
+
+            <strong>Guest Review</strong>
+
+        </div>
+
+
+        <div class="review-card fade">
+
+            <i class="fas fa-quote-left"></i>
+
+            <p>
+                The food, spacious environment and family-friendly
+                atmosphere make it a great dining destination.
+            </p>
+
+            <strong>Guest Review</strong>
+
+        </div>
+
+
+        <div class="review-card fade">
+
+            <i class="fas fa-quote-left"></i>
+
+            <p>
+                Traditional flavors, courteous staff and plenty
+                of space for families.
+            </p>
+
+            <strong>Guest Review</strong>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     GALLERY
+========================= -->
+
+<section class="gallery" id="gallery">
+
+    <div class="section-heading">
+
+        <span>Inside PIND</span>
+
+        <h2>Gallery</h2>
+
+        <p>
+            A glimpse of Pakistani flavors and the PIND dining experience.
+        </p>
+
+    </div>
+
+
+    <div class="gallery-grid">
+
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1603894584373-5ac82b2ae398?auto=format&fit=crop&w=1200&q=85"
+                 alt="Chicken Karahi">
+
+            <div class="gallery-overlay"></div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=900&q=80"
+                 alt="BBQ">
+
+            <div class="gallery-overlay"></div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1565299507177-b0ac66763828?auto=format&fit=crop&w=900&q=80"
+                 alt="Pakistani food">
+
+            <div class="gallery-overlay"></div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=900&q=80"
+                 alt="Grilled BBQ">
+
+            <div class="gallery-overlay"></div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1574484284002-952d92456975?auto=format&fit=crop&w=900&q=80"
+                 alt="Traditional food">
+
+            <div class="gallery-overlay"></div>
+
+        </div>
+
+
+        <div class="gallery-item">
+
+            <img src="https://images.unsplash.com/photo-1601050690117-94f5f6fa8bd7?auto=format&fit=crop&w=900&q=80"
+                 alt="Restaurant food">
+
+            <div class="gallery-overlay"></div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CONTACT
+========================= -->
+
+<section class="contact" id="contact">
+
+    <div class="contact-grid">
+
+
+        <div class="contact-info">
+
+            <span class="hero-label">
+                Visit PIND
+            </span>
+
+            <h2>
+                Come & Taste<br>
+                <span style="color:#c49a55;">Tradition.</span>
+            </h2>
+
+            <p>
+                Experience authentic Pakistani flavors with
+                warm PIND hospitality.
+            </p>
+
+
+            <div class="contact-detail">
+
+                <i class="fas fa-location-dot"></i>
+
+                <div>
+
+                    <strong>Location</strong>
+
+                    <span>
+                        P7M8+H67, Kala Shah Kaku GT Road,
+                        Kala Shah Kaku, 54000, Pakistan
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-detail">
+
+                <i class="fas fa-phone"></i>
+
+                <div>
+
+                    <strong>Phone</strong>
+
+                    <span>
+                        +92 308 4761633
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="contact-detail">
+
+                <i class="fas fa-utensils"></i>
+
+                <div>
+
+                    <strong>Services</strong>
+
+                    <span>
+                        Dine-in • Takeout • Delivery
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="hero-buttons">
+
+                <a href="tel:+923084761633"
+                   class="btn btn-gold">
+
+                    <i class="fas fa-phone"></i>
+                    Call Restaurant
+
+                </a>
+
+
+                <a target="_blank"
+                   href="https://www.google.com/maps/search/?api=1&query=PIND+Restaurant+Kala+Shah+Kaku"
+                   class="btn btn-outline">
+
+                    <i class="fas fa-map-marker-alt"></i>
+                    Get Directions
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="map">
+
+            <div class="map-card">
+
+                <i class="fas fa-location-dot"></i>
+
+                <h3>PIND Restaurant</h3>
+
+                <p>
+                    Kala Shah Kaku<br>
+                    GT Road, Pakistan
+                </p>
+
+                <br>
+
+                <a target="_blank"
+                   href="https://www.google.com/maps/search/?api=1&query=PIND+Restaurant+Kala+Shah+Kaku"
+                   class="btn btn-gold">
+
+                    Open Google Maps
+
+                </a>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <div class="footer-grid">
+
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                PIND Restaurant
+            </div>
+
+            <div class="urdu">
+                پنڈ ریسٹورنٹ
+            </div>
+
+            <p>
+                Authentic Pakistani flavors, served with
+                PIND hospitality.
+            </p>
+
+
+            <div class="socials">
+
+                <a href="#">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fab fa-instagram"></i>
+                </a>
+
+                <a href="#">
+                    <i class="fab fa-tiktok"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div>
+
+            <h3>Quick Links</h3>
+
+            <ul class="footer-links">
+
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#menu">Menu</a></li>
+                <li><a href="#bbq">BBQ</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#reviews">Reviews</a></li>
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+
+        <div>
+
+            <h3>Contact</h3>
+
+            <ul class="footer-links">
+
+                <li>
+                    <i class="fas fa-location-dot"></i>
+                    Kala Shah Kaku, Pakistan
+                </li>
+
+                <li>
+                    <i class="fas fa-phone"></i>
+                    +92 308 4761633
+                </li>
+
+                <li>
+                    Dine-in • Takeout • Delivery
+                </li>
+
+            </ul>
+
+        </div>
+
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 PIND Restaurant. All Rights Reserved.
+        <br><br>
+        Prices are subject to applicable government taxes.
+
+    </div>
+
+</footer>
+
+
+<!-- SCROLL TOP -->
+
+<button id="topBtn" onclick="topFunction()">
+
+    <i class="fas fa-arrow-up"></i>
+
+</button>
+
+
+<!-- =========================
+     JAVASCRIPT
+========================= -->
+
+<script>
+
+    /* MOBILE MENU */
+
+    function toggleMenu() {
+
+        const nav = document.getElementById("navLinks");
+
+        nav.classList.toggle("active");
+
+    }
+
+
+    /* CLOSE MOBILE MENU AFTER CLICK */
+
+    document.querySelectorAll(".nav-links a").forEach(link => {
+
+        link.addEventListener("click", () => {
+
+            document
+                .getElementById("navLinks")
+                .classList.remove("active");
+
+        });
+
+    });
+
+
+    /* MENU FILTER */
+
+    function filterMenu(category, button) {
+
+        const items =
+            document.querySelectorAll(".menu-item");
+
+        const buttons =
+            document.querySelectorAll(".filter-btn");
+
+        buttons.forEach(btn => {
+
+            btn.classList.remove("active");
+
+        });
+
+        button.classList.add("active");
+
+
+        items.forEach(item => {
+
+            if (
+                category === "all" ||
+                item.dataset.category === category
+            ) {
+
+                item.style.display = "block";
+
+            } else {
+
+                item.style.display = "none";
+
+            }
+
+        });
+
+    }
+
+
+    /* FADE IN ON SCROLL */
+
+    const observer = new IntersectionObserver(
+
+        entries => {
+
+            entries.forEach(entry => {
+
+                if (entry.isIntersecting) {
+
+                    entry.target.classList.add("show");
+
+                }
+
+            });
+
+        },
+
+        {
+            threshold: .15
+        }
+
+    );
+
+
+    document
+        .querySelectorAll(".fade")
+        .forEach(element => {
+
+            observer.observe(element);
+
+        });
+
+
+    /* SCROLL TOP BUTTON */
+
+    const topBtn =
+        document.getElementById("topBtn");
+
+
+    window.addEventListener("scroll", () => {
+
+        if (
+            document.body.scrollTop > 500 ||
+            document.documentElement.scrollTop > 500
+        ) {
+
+            topBtn.style.display = "block";
+
+        } else {
+
+            topBtn.style.display = "none";
+
+        }
+
+    });
+
+
+    function topFunction() {
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+    }
+
+</script>
+
+
+</body>
+</html>
